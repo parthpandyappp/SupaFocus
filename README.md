@@ -1,4 +1,5 @@
 # SupaFocus
+<p align="center"><img src="https://i.ibb.co/dDB4y29/og-image.png" alt="og-image" border="0"></p>
 SupaFocus is a web-based task management app that helps you stay organized and focused on what matters most. Built with NestJS, React Typescript, and TailwindCSS, SupaFocus offers a sleek and intuitive user interface, as well as a range of useful features for managing your tasks.
 
 
