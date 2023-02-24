@@ -56,4 +56,4 @@ We welcome contributions from anyone who wants to help improve SupaFocus. To get
 
 ## License
 
-SupaFocus is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
+SupaFocus is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for more information.
