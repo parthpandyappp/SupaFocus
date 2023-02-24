@@ -11,17 +11,21 @@ import {
 } from "../services";
 import { SlOptionsVertical } from "react-icons/sl";
 import { ImBin, ImCheckmark } from "react-icons/im";
+import { RiLoader4Fill } from "react-icons/ri";
 
 const TodoItems = () => {
   const setTodos = useSetRecoilState(todoState);
   const todos = useRecoilValue<TodoContent[]>(todoState);
+  const [loading, setLoading] = useState<boolean>(false);
   const [toggleOptions, setToggleOptions] = useState<boolean>(false);
   const { authUser, isLoggedIn } = useRecoilValue<UserContext>(userState);
 
   useEffect(() => {
     if (isLoggedIn) {
       (async () => {
+        setLoading(true);
         setTodos(await getUserTodos(authUser.userId));
+        setLoading(false);
       })();
     }
   }, [isLoggedIn, authUser.userId, setTodos]);
@@ -29,7 +33,7 @@ const TodoItems = () => {
   const deleteAllTodos = async () => {
     try {
       setTodos([]);
-      setToggleOptions(false)
+      setToggleOptions(false);
       await deleteAllUserTodos(authUser.userId);
     } catch (error) {
       console.log(error);
@@ -41,7 +45,7 @@ const TodoItems = () => {
       setTodos((todos) =>
         todos.filter((todo: TodoContent | any) => todo.isCompleted !== true)
       );
-      setToggleOptions(false)
+      setToggleOptions(false);
       await deleteAllCompletedUserTodos(authUser.userId);
     } catch (error) {
       console.log(error);
@@ -79,7 +83,14 @@ const TodoItems = () => {
             </div>
           </div>
           <hr className="divide-y divide-white-400 md:divide-y-8" />
-          {todos?.length ? (
+          {loading ? (
+            <div className="flex items-center justify-center">
+              <RiLoader4Fill className="animate-spin h-10 w-10 text-white-500 mr-2" />
+              <span className="text-white-500 text-xl font-semibold">
+                Loading...
+              </span>
+            </div>
+          ) : todos?.length ? (
             todos?.map((todo: TodoContent | any) => (
               <TodoItem key={todo._id} {...todo} />
             ))
@@ -88,6 +99,17 @@ const TodoItems = () => {
               Start building your SupaFocus
             </p>
           )}
+          {/* {loading ? (
+            <h1>Laoding...</h1>
+          ) : todos?.length ? (
+            todos?.map((todo: TodoContent | any) => (
+              <TodoItem key={todo._id} {...todo} />
+            ))
+          ) : (
+            <p className="flex justify-center items-center m-6 text-sm font-semibold">
+              Start building your SupaFocus
+            </p>
+          )} */}
         </div>
       ) : (
         <p className="flex justify-center text-center items-center m-6 text-lg font-semibold">
