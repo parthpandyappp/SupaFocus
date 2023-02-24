@@ -5,7 +5,7 @@ export const getAllTodos = async () => {
   try {
     const res = await axios({
       method: "GET",
-      url: "http://localhost:3001/todos",
+      url: `${process.env.REACT_APP_BACKEND_URL}/todos`,
     });
     return res.data;
   } catch (error) {
@@ -17,7 +17,7 @@ export const deleteAllUserTodos = async (userId: string) => {
   try {
     await axios({
       method: "DELETE",
-      url: `http://localhost:3001/todos/user/${userId}`,
+      url: `${process.env.REACT_APP_BACKEND_URL}/todos/user/${userId}`,
     });
   } catch (error) {
     console.log(error);
@@ -28,7 +28,7 @@ export const deleteAllCompletedUserTodos = async (userId: string) => {
   try {
     await axios({
       method: "DELETE",
-      url: `http://localhost:3001/todos/completed/user/${userId}`,
+      url: `${process.env.REACT_APP_BACKEND_URL}/todos/completed/user/${userId}`,
     });
   } catch (error) {
     console.log(error);
@@ -39,7 +39,7 @@ export const deleteTodo = async (todoId: string) => {
   try {
     console.log(todoId);
     await axios({
-      url: `http://localhost:3001/todos/${todoId}`,
+      url: `${process.env.REACT_APP_BACKEND_URL}/todos/${todoId}`,
       method: "DELETE",
     });
   } catch (error) {
@@ -50,7 +50,7 @@ export const deleteTodo = async (todoId: string) => {
 export const updateTodo = async (todo: TodoContent | any) => {
   try {
     await axios({
-      url: `http://localhost:3001/todos/${todo._id}`,
+      url: `${process.env.REACT_APP_BACKEND_URL}/todos/${todo._id}`,
       method: "PUT",
       data: todo,
     });
@@ -61,8 +61,10 @@ export const updateTodo = async (todo: TodoContent | any) => {
 
 export const getUserTodos = async (userId: string) => {
   try {
+    console.log("HEY: ", process.env.REACT_APP_BACKEND_URL);
+
     const res = await axios({
-      url: `http://localhost:3001/todos/${userId}`,
+      url: `${process.env.REACT_APP_BACKEND_URL}/todos/${userId}`,
       method: "GET",
     });
     return res.data;
@@ -72,7 +74,7 @@ export const getUserTodos = async (userId: string) => {
 export const createTodo = async (todo: TodoContent) => {
   try {
     await axios({
-      url: `http://localhost:3001/todos/`,
+      url: `${process.env.REACT_APP_BACKEND_URL}/todos/`,
       method: "POST",
       data: todo,
     });
@@ -80,5 +82,3 @@ export const createTodo = async (todo: TodoContent) => {
     console.log(error);
   }
 };
-
-// http://localhost:3001/todos/

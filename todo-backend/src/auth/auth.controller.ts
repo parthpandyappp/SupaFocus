@@ -29,7 +29,7 @@ export class AuthController {
       userId: user.userId,
     };
     return res.redirect(
-      `http://localhost:3000/${this.jwtService.sign(payload)}`,
+      `${process.env.CLIENT_URL}/${this.jwtService.sign(payload)}`,
     );
   }
 }

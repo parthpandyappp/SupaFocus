@@ -25,7 +25,7 @@ const Nav = () => {
         <div>
           {!isLoggedIn ? (
             <a
-              href="http://localhost:3001/auth"
+              href={`${process.env.REACT_APP_BACKEND_URL}/auth`}
               className="bg-gray-100/20 px-3 font-light rounded text-xs py-2"
             >
               Login
