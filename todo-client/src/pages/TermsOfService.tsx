@@ -20,25 +20,14 @@ export const TermsOfService = () => {
           account information and password.
         </li>
         <li className="mb-2">
-          We reserve the right to terminate or suspend your access to the app at
-          any time and for any reason.
-        </li>
-        <li className="mb-2">
-          We may make changes to the app or these terms of service at any time
-          and without notice.
-        </li>
-        <li className="mb-2">
-          We are not responsible for any damages or losses arising from your use
-          of the app or any failure or delay in its performance.
-        </li>
-        <li className="mb-2">
-          Our app may contain links to third-party websites or services, but we
-          are not responsible for their content or privacy practices.
+          We may make changes to the app or these terms of service in future
+          which you'll be notified.
         </li>
       </ol>
       <p className="mb-4">
-        By using SupaFocus app, you agree to these terms of service. If you do
-        not agree to these terms, please do not use the app.
+        By using SupaFocus app, you agree to these terms of service. This is a
+        productivity friendly app & doesn't intend to store unneccesary
+        sensitive details of user.
       </p>
     </div>
   );
