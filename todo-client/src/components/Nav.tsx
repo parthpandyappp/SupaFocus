@@ -1,7 +1,7 @@
 import React from "react";
 import { userState } from "../states";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IoIosFlash } from "react-icons/io";
 
 const Nav = () => {
@@ -17,10 +17,12 @@ const Nav = () => {
   return (
     <nav className="flex flex-col gap-2  w-5/6 md:w-3/6 mx-auto">
       <div className="flex justify-between">
-        <h1 className="text-xl font-bold flex gap-1 items-center">
-          <IoIosFlash />
-          SupaFocus
-        </h1>
+        <Link to="/">
+          <h1 className="text-xl font-bold flex gap-1 items-center">
+            <IoIosFlash />
+            SupaFocus
+          </h1>
+        </Link>
 
         <div>
           {!isLoggedIn ? (
