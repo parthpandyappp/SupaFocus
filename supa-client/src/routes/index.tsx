@@ -8,7 +8,6 @@ const Endpoints = () => {
       <Route path="/" element={<LandingPage />} />
       <Route path="/focus/:user" element={<Home />} />
       <Route path="/focus/" element={<Home />} />
-      <Route path="/" element={<Home />} />
       <Route path="/terms-of-service" element={<TermsOfService />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
     </Routes>
