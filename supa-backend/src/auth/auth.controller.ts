@@ -27,7 +27,7 @@ export class AuthController {
       userId: user.userId,
     };
     return res.redirect(
-      `${process.env.CLIENT_URL}/${this.jwtService.sign(payload)}`,
+      `${process.env.CLIENT_URL}/focus/${this.jwtService.sign(payload)}`,
     );
   }
 }

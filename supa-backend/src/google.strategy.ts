@@ -12,7 +12,7 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
     super({
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_SECRET,
-      callbackURL: `https://supafocus-production.up.railway.app/auth/redirect`,
+      callbackURL: `${process.env.BACKEND_URL}/auth/redirect`,
       scope: [
         'profile',
         'email',
@@ -36,7 +36,7 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
       picture: photos[0].value,
       accessToken,
     };
-
+    console.log(`PROCESS: ${process.env.BACKEND_URL}`);
     const isUserAlreadyCreated = await this.authService.checkAlreadyCreated(
       user.userId,
     );
