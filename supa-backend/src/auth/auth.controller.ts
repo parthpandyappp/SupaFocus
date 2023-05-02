@@ -20,8 +20,6 @@ export class AuthController {
   @UseGuards(AuthGuard('google'))
   async googleAuthRedirect(@Req() req, @Res() res) {
     const user = await this.authService.googleLogin(req);
-
-    console.log(user);
     const payload = {
       firstName: user.firstName,
       pic: user.picture,
