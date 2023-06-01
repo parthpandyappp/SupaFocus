@@ -8,7 +8,7 @@ const LandingPage = () => {
     <main className="flex flex-col gap-3 mx-auto w-5/6 md:w-2/6 grow items-center justify-center h-full">
       <img src="/landing.svg" className="w-2/3 h-1/2" alt="" />
       <p className="text-sm font-semibold text-white h-full">
-        From chaos to clarity - Supafocus helps you stay on top of it all.
+        From chaos to clarity -Supafocus helps you stay on top of it all.
       </p>
       <p className="text-xs text-white h-full -mt-3">
         Take control of your day with Supafocus - the effortless task manager.
